@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Domination Leakage Model</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin-top: 30px;
+    font-size: 28px;
+}
+
+.subtitle {
+    font-style: italic;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
+
+.pyramid {
+    width: 0;
+    margin: 0 auto;
+}
+
+.layer {
+    margin: 10px auto;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 8px;
+}
+
+.layer:hover {
+    transform: scale(1.05);
+}
+
+.top { width: 200px; background: #7f1d1d; }
+.upper { width: 300px; background: #b91c1c; }
+.middle { width: 400px; background: #dc2626; }
+.bottom { width: 500px; background: #ef4444; }
+
+.popup {
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    background: #1e293b;
+    border-radius: 8px;
+}
+
+button {
+    margin-top: 25px;
+    padding: 10px 20px;
+    background: #2563eb;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+#cycleAnimation {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #38bdf8;
+}
+
+.slider-container {
+    margin-top: 40px;
+}
+
+input[type=range] {
+    width: 60%;
+}
+
+.scale-output {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #facc15;
+}
+
+.leadership {
+    margin: 50px auto;
+    max-width: 700px;
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Ecclesiastes 8:9 — “Man has dominated man to his injury.”</h1>
+<div class="subtitle">The Domination Leakage Model</div>
+
+<div class="pyramid">
+
+<div class="layer top" onclick="togglePopup('p1')">
+Power & Preservation
+<div id="p1" class="popup">
+Leaders and systems create policies to protect status and control.  
+Driven by fear of loss, institutional bias, and status protection.
+</div>
+</div>
+
+<div class="layer upper" onclick="togglePopup('p2')">
+Political & Ideological Alignment
+<div id="p2" class="popup">
+Politics becomes identity.  
+Confirmation bias and in-group vs out-group thinking shape division.
+</div>
+</div>
+
+<div class="layer middle" onclick="togglePopup('p3')">
+Cultural Domination
+<div id="p3" class="popup">
+Domination becomes subtle.  
+Workplace cliques, resistance to difference, identity protection.
+</div>
+</div>
+
+<div class="layer bottom" onclick="togglePopup('p4')">
+Survival & Internalized Domination
+<div id="p4" class="popup">
+Even those with little power seek control somewhere.  
+Family dynamics, schools, bullying — the cycle continues.
+</div>
+</div>
+
+</div>
+
+<button onclick="animateCycle()">See the Cycle</button>
+
+<div id="cycleAnimation"></div>
+
+<div class="slider-container">
+<h3>Where do you see this most?</h3>
+<input type="range" min="1" max="5" value="1" id="scaleSlider" oninput="updateScale()">
+<div class="scale-output" id="scaleOutput"></div>
+</div>
+
+<div class="leadership">
+<h3>Leadership Disruption</h3>
+<p>
+Domination is not just structural — it is cyclical and scalable.  
+As leaders, our role is not to deny it, but to interrupt the cycle  
+through mentorship, fairness, awareness, and intentional inclusion.
+</p>
+</div>
+
+<script>
+function togglePopup(id) {
+    var popup = document.getElementById(id);
+    popup.style.display = popup.style.display === "block" ? "none" : "block";
+}
+
+function animateCycle() {
+    const text = document.getElementById("cycleAnimation");
+    text.innerHTML = "National → Organizational → Social → Family → Individual → (Resets & Repeats)";
+}
+
+function updateScale() {
+    const slider = document.getElementById("scaleSlider").value;
+    const output = document.getElementById("scaleOutput");
+
+    const levels = {
+        1: "Government Systems",
+        2: "Organizations & Departments",
+        3: "Workplace Culture",
+        4: "Family Structure",
+        5: "Individual Behavior"
+    };
+
+    output.innerHTML = levels[slider];
+}
+
+updateScale();
+</script>
+
+</body>
+</html>
